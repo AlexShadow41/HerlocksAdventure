@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+</head>
+<body>
+<main role="main">
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a id="line.1">import java.util.Stack;</a>
+<span class="sourceLineNo">002</span><a id="line.2">import java.util.HashMap;</a>
+<span class="sourceLineNo">003</span><a id="line.3"></a>
+<span class="sourceLineNo">004</span><a id="line.4">/**</a>
+<span class="sourceLineNo">005</span><a id="line.5"> * Gère les actions et les données relative à un joueur</a>
+<span class="sourceLineNo">006</span><a id="line.6"> *</a>
+<span class="sourceLineNo">007</span><a id="line.7"> * @author Alexian Plancke</a>
+<span class="sourceLineNo">008</span><a id="line.8"> * @version Intermédiaire</a>
+<span class="sourceLineNo">009</span><a id="line.9"> */</a>
+<span class="sourceLineNo">010</span><a id="line.10">public class Player</a>
+<span class="sourceLineNo">011</span><a id="line.11">{</a>
+<span class="sourceLineNo">012</span><a id="line.12">    private String aCurrentRoom;</a>
+<span class="sourceLineNo">013</span><a id="line.13">    private Stack &lt;String&gt; aPreviousRooms = new Stack&lt;String&gt;();</a>
+<span class="sourceLineNo">014</span><a id="line.14">    private String aPlayerName;</a>
+<span class="sourceLineNo">015</span><a id="line.15">    private ItemList aInventory = new ItemList();</a>
+<span class="sourceLineNo">016</span><a id="line.16">    private int aStrength;</a>
+<span class="sourceLineNo">017</span><a id="line.17">    private int aAgility;</a>
+<span class="sourceLineNo">018</span><a id="line.18">    private int aWisdom;</a>
+<span class="sourceLineNo">019</span><a id="line.19">    private int aIntelligence;</a>
+<span class="sourceLineNo">020</span><a id="line.20">    private float aCarriedWeight;</a>
+<span class="sourceLineNo">021</span><a id="line.21">    private float aExtraWeigth;</a>
+<span class="sourceLineNo">022</span><a id="line.22">    </a>
+<span class="sourceLineNo">023</span><a id="line.23"></a>
+<span class="sourceLineNo">024</span><a id="line.24">    /**</a>
+<span class="sourceLineNo">025</span><a id="line.25">     * Constructeur d'objets de classe Player</a>
+<span class="sourceLineNo">026</span><a id="line.26">     */</a>
+<span class="sourceLineNo">027</span><a id="line.27">    public Player()</a>
+<span class="sourceLineNo">028</span><a id="line.28">    {</a>
+<span class="sourceLineNo">029</span><a id="line.29">        this.aPlayerName = "Player 1";</a>
+<span class="sourceLineNo">030</span><a id="line.30">        this.aCurrentRoom = "Road1";</a>
+<span class="sourceLineNo">031</span><a id="line.31">        this.aStrength = 10 + (int) (Math.random() * 10)  ;</a>
+<span class="sourceLineNo">032</span><a id="line.32">        this.aAgility = 5 + (int) (Math.random() * 15);</a>
+<span class="sourceLineNo">033</span><a id="line.33">        this.aWisdom = 5 + (int) (Math.random() * 15);</a>
+<span class="sourceLineNo">034</span><a id="line.34">        this.aIntelligence = 10 + (int) (Math.random() * 10);</a>
+<span class="sourceLineNo">035</span><a id="line.35">        this.aExtraWeigth = this.aCarriedWeight = 0;</a>
+<span class="sourceLineNo">036</span><a id="line.36">    }</a>
+<span class="sourceLineNo">037</span><a id="line.37">    </a>
+<span class="sourceLineNo">038</span><a id="line.38">    /**</a>
+<span class="sourceLineNo">039</span><a id="line.39">     * Enregistre le nom du joueur</a>
+<span class="sourceLineNo">040</span><a id="line.40">     * @param pPlayerName String Nom du joueur</a>
+<span class="sourceLineNo">041</span><a id="line.41">     */</a>
+<span class="sourceLineNo">042</span><a id="line.42">    public void setName(final String pPlayerName){</a>
+<span class="sourceLineNo">043</span><a id="line.43">        this.aPlayerName = pPlayerName;</a>
+<span class="sourceLineNo">044</span><a id="line.44">    }</a>
+<span class="sourceLineNo">045</span><a id="line.45">    </a>
+<span class="sourceLineNo">046</span><a id="line.46">    /**</a>
+<span class="sourceLineNo">047</span><a id="line.47">     * Permet d'accéder à la pièce où se trouve le joueur</a>
+<span class="sourceLineNo">048</span><a id="line.48">     * @param pRooms HashMap Dictionnaire des salles du jeu</a>
+<span class="sourceLineNo">049</span><a id="line.49">     * @return       Renvoie l'objet Room de la salle dans laquelle se trouve le joueur</a>
+<span class="sourceLineNo">050</span><a id="line.50">     */</a>
+<span class="sourceLineNo">051</span><a id="line.51">    public Room getCurrentRoom(final HashMap&lt;String, Room&gt; pRooms){</a>
+<span class="sourceLineNo">052</span><a id="line.52">        return pRooms.get(this.aCurrentRoom);</a>
+<span class="sourceLineNo">053</span><a id="line.53">    }</a>
+<span class="sourceLineNo">054</span><a id="line.54">    </a>
+<span class="sourceLineNo">055</span><a id="line.55">    /**</a>
+<span class="sourceLineNo">056</span><a id="line.56">     * Initialise la position initiale du joueur</a>
+<span class="sourceLineNo">057</span><a id="line.57">     * @param pRoomName String Nom de la Salle</a>
+<span class="sourceLineNo">058</span><a id="line.58">     */</a>
+<span class="sourceLineNo">059</span><a id="line.59">    public void setCurrentRoom(final String pRoomName){</a>
+<span class="sourceLineNo">060</span><a id="line.60">        // this.aPreviousRooms.push(this.aCurrentRoom);</a>
+<span class="sourceLineNo">061</span><a id="line.61">        this.aCurrentRoom = pRoomName;</a>
+<span class="sourceLineNo">062</span><a id="line.62">    }</a>
+<span class="sourceLineNo">063</span><a id="line.63">    </a>
+<span class="sourceLineNo">064</span><a id="line.64">    /**</a>
+<span class="sourceLineNo">065</span><a id="line.65">     * </a>
+<span class="sourceLineNo">066</span><a id="line.66">     * @param pRooms HashMap Liste des Salles</a>
+<span class="sourceLineNo">067</span><a id="line.67">     * @param pDirection String La direction</a>
+<span class="sourceLineNo">068</span><a id="line.68">     * @return Renvoie le nom de la nouvelle salle courante</a>
+<span class="sourceLineNo">069</span><a id="line.69">     */</a>
+<span class="sourceLineNo">070</span><a id="line.70">    public String go(final HashMap&lt;String,Room&gt; pRooms, final String pDirection)</a>
+<span class="sourceLineNo">071</span><a id="line.71">    {</a>
+<span class="sourceLineNo">072</span><a id="line.72">        if (pDirection.equals("back")) {</a>
+<span class="sourceLineNo">073</span><a id="line.73">            if (this.aPreviousRooms.isEmpty())</a>
+<span class="sourceLineNo">074</span><a id="line.74">                return null;</a>
+<span class="sourceLineNo">075</span><a id="line.75">            this.aCurrentRoom = this.aPreviousRooms.pop();</a>
+<span class="sourceLineNo">076</span><a id="line.76">        }</a>
+<span class="sourceLineNo">077</span><a id="line.77">        else {</a>
+<span class="sourceLineNo">078</span><a id="line.78">            Room vRoom = pRooms.get(this.aCurrentRoom);</a>
+<span class="sourceLineNo">079</span><a id="line.79">            String vNextRoom = vRoom.getExits(pDirection);</a>
+<span class="sourceLineNo">080</span><a id="line.80">            if (vNextRoom == null)</a>
+<span class="sourceLineNo">081</span><a id="line.81">                return null;</a>
+<span class="sourceLineNo">082</span><a id="line.82">            this.aPreviousRooms.push(this.aCurrentRoom);</a>
+<span class="sourceLineNo">083</span><a id="line.83">            this.aCurrentRoom = vNextRoom;</a>
+<span class="sourceLineNo">084</span><a id="line.84">        }</a>
+<span class="sourceLineNo">085</span><a id="line.85">        return(this.aCurrentRoom);</a>
+<span class="sourceLineNo">086</span><a id="line.86">    }</a>
+<span class="sourceLineNo">087</span><a id="line.87">    </a>
+<span class="sourceLineNo">088</span><a id="line.88">    /**</a>
+<span class="sourceLineNo">089</span><a id="line.89">     * Fonction permettant dau joueur de prendre un item</a>
+<span class="sourceLineNo">090</span><a id="line.90">     * @param pRooms HashMap Liste des Salles</a>
+<span class="sourceLineNo">091</span><a id="line.91">     * @param   pItemName String Nom de l'item à ajouter à l'iventaire du joueur</a>
+<span class="sourceLineNo">092</span><a id="line.92">     * @return  Renvoie le message à afficher pour informer le joueur du résultat de l'action</a>
+<span class="sourceLineNo">093</span><a id="line.93">     */</a>
+<span class="sourceLineNo">094</span><a id="line.94">    public String take(final HashMap&lt;String,Room&gt; pRooms, final String pItemName) {</a>
+<span class="sourceLineNo">095</span><a id="line.95">        // Can the requested item be found in the current room?</a>
+<span class="sourceLineNo">096</span><a id="line.96">        Room vRoom = pRooms.get(this.aCurrentRoom);</a>
+<span class="sourceLineNo">097</span><a id="line.97">        Item vItem = vRoom.takeItem(pItemName);</a>
+<span class="sourceLineNo">098</span><a id="line.98">        if (vItem == null)</a>
+<span class="sourceLineNo">099</span><a id="line.99">            return "There's no such item in this room";</a>
+<span class="sourceLineNo">100</span><a id="line.100">        </a>
+<span class="sourceLineNo">101</span><a id="line.101">        // Can the player carry all the weight?</a>
+<span class="sourceLineNo">102</span><a id="line.102">        double vCanCarry = this.aStrength * 2.5 * 1000.0 + this.aExtraWeigth;</a>
+<span class="sourceLineNo">103</span><a id="line.103">        double vToCarry = this.aCarriedWeight + vItem.getWeight();</a>
+<span class="sourceLineNo">104</span><a id="line.104">        if (vToCarry &gt; vCanCarry) {</a>
+<span class="sourceLineNo">105</span><a id="line.105">            vRoom.addItem(pItemName, vItem);</a>
+<span class="sourceLineNo">106</span><a id="line.106">            return "You are not strong enough to carry this, maybe you should consider droping some stuff";</a>
+<span class="sourceLineNo">107</span><a id="line.107">        }//if</a>
+<span class="sourceLineNo">108</span><a id="line.108">        // Add the item to player's inventory</a>
+<span class="sourceLineNo">109</span><a id="line.109">        this.aInventory.addItem(pItemName, vItem);</a>
+<span class="sourceLineNo">110</span><a id="line.110">        this.aCarriedWeight += vItem.getWeight();</a>
+<span class="sourceLineNo">111</span><a id="line.111">        return "The "+pItemName+" has been added to your inventory";</a>
+<span class="sourceLineNo">112</span><a id="line.112">    }</a>
+<span class="sourceLineNo">113</span><a id="line.113"></a>
+<span class="sourceLineNo">114</span><a id="line.114">    /**</a>
+<span class="sourceLineNo">115</span><a id="line.115">     * Méthode permettant au joueur d'inspecter un objet (A améliorer plus tard avec la loupe)</a>
+<span class="sourceLineNo">116</span><a id="line.116">     * @param pRooms HashMap Liste des Salles</a>
+<span class="sourceLineNo">117</span><a id="line.117">     * @param pItemName String L'item à inspecter</a>
+<span class="sourceLineNo">118</span><a id="line.118">     * @return  Renvoie le message à afficher pour informer le joueur du résultat de l'action</a>
+<span class="sourceLineNo">119</span><a id="line.119">     */</a>
+<span class="sourceLineNo">120</span><a id="line.120">    public String inspect(final HashMap&lt;String,Room&gt; pRooms, final String pItemName) {</a>
+<span class="sourceLineNo">121</span><a id="line.121">        // Can the requested item be found in the current room?</a>
+<span class="sourceLineNo">122</span><a id="line.122">        Room vRoom = pRooms.get(this.aCurrentRoom);</a>
+<span class="sourceLineNo">123</span><a id="line.123">        Item vItem = vRoom.findItem(pItemName);</a>
+<span class="sourceLineNo">124</span><a id="line.124">        if (vItem == null)</a>
+<span class="sourceLineNo">125</span><a id="line.125">            return "There's no such item in this room";</a>
+<span class="sourceLineNo">126</span><a id="line.126">        return vItem.getDescription();</a>
+<span class="sourceLineNo">127</span><a id="line.127">        //return vItem.getLongDescription();</a>
+<span class="sourceLineNo">128</span><a id="line.128">    }</a>
+<span class="sourceLineNo">129</span><a id="line.129"></a>
+<span class="sourceLineNo">130</span><a id="line.130">    </a>
+<span class="sourceLineNo">131</span><a id="line.131">    /**</a>
+<span class="sourceLineNo">132</span><a id="line.132">     * Méthode permettant au joueur de manger</a>
+<span class="sourceLineNo">133</span><a id="line.133">      * @param pRooms HashMap Liste des Salles</a>
+<span class="sourceLineNo">134</span><a id="line.134">     * @param pItemName String L'item à manger</a>
+<span class="sourceLineNo">135</span><a id="line.135">     * @return  Renvoie le message à afficher pour informer le joueur du résultat de l'action</a>
+<span class="sourceLineNo">136</span><a id="line.136">     */</a>
+<span class="sourceLineNo">137</span><a id="line.137">    public String eat(final HashMap&lt;String,Room&gt; pRooms, final String pItemName) {</a>
+<span class="sourceLineNo">138</span><a id="line.138">        // Check if in your inventory</a>
+<span class="sourceLineNo">139</span><a id="line.139">        if (! this.aInventory.searchItem(pItemName))</a>
+<span class="sourceLineNo">140</span><a id="line.140">            return "You don't have any "+pItemName+" in your inventory";</a>
+<span class="sourceLineNo">141</span><a id="line.141"></a>
+<span class="sourceLineNo">142</span><a id="line.142">        // check if you can eat it</a>
+<span class="sourceLineNo">143</span><a id="line.143">        if (! pItemName.equals("Cookie"))</a>
+<span class="sourceLineNo">144</span><a id="line.144">            return "Oh no, this doesn't look tasty, try it yourself!";</a>
+<span class="sourceLineNo">145</span><a id="line.145"></a>
+<span class="sourceLineNo">146</span><a id="line.146">        // Remove it from your inventory</a>
+<span class="sourceLineNo">147</span><a id="line.147">        Item vItem = this.aInventory.removeItem(pItemName);</a>
+<span class="sourceLineNo">148</span><a id="line.148">        this.aCarriedWeight -= vItem.getWeight();</a>
+<span class="sourceLineNo">149</span><a id="line.149">        </a>
+<span class="sourceLineNo">150</span><a id="line.150">        // Apply magic effect</a>
+<span class="sourceLineNo">151</span><a id="line.151">        this.aExtraWeigth = 60*1000; </a>
+<span class="sourceLineNo">152</span><a id="line.152">        return "Oh my god, I now feel so strong";</a>
+<span class="sourceLineNo">153</span><a id="line.153">    }</a>
+<span class="sourceLineNo">154</span><a id="line.154"></a>
+<span class="sourceLineNo">155</span><a id="line.155">    /**</a>
+<span class="sourceLineNo">156</span><a id="line.156">     * Méthode permettant au joueur de reposer un objet</a>
+<span class="sourceLineNo">157</span><a id="line.157">     * @param pRooms HashMap Liste des Salles</a>
+<span class="sourceLineNo">158</span><a id="line.158">     * @param pItemName String L'item à déposer</a>
+<span class="sourceLineNo">159</span><a id="line.159">     * @return  Renvoie le message à afficher pour informer le joueur du résultat de l'action</a>
+<span class="sourceLineNo">160</span><a id="line.160">     */</a>
+<span class="sourceLineNo">161</span><a id="line.161">    public String drop(final HashMap&lt;String,Room&gt; pRooms, final String pItemName) {</a>
+<span class="sourceLineNo">162</span><a id="line.162">        if (! this.aInventory.searchItem(pItemName))</a>
+<span class="sourceLineNo">163</span><a id="line.163">            return "You don't have any "+pItemName+" in your inventory";</a>
+<span class="sourceLineNo">164</span><a id="line.164">        Item vItem = this.aInventory.removeItem(pItemName);</a>
+<span class="sourceLineNo">165</span><a id="line.165">        this.aCarriedWeight -= vItem.getWeight();</a>
+<span class="sourceLineNo">166</span><a id="line.166"></a>
+<span class="sourceLineNo">167</span><a id="line.167">        // Put the dropped Item in the current room</a>
+<span class="sourceLineNo">168</span><a id="line.168">        Room vRoom = pRooms.get(this.aCurrentRoom);</a>
+<span class="sourceLineNo">169</span><a id="line.169">        vRoom.addItem(pItemName, vItem);</a>
+<span class="sourceLineNo">170</span><a id="line.170">        return "The "+pItemName+" has been dropped";</a>
+<span class="sourceLineNo">171</span><a id="line.171">    }</a>
+<span class="sourceLineNo">172</span><a id="line.172">    </a>
+<span class="sourceLineNo">173</span><a id="line.173">    /**</a>
+<span class="sourceLineNo">174</span><a id="line.174">     * Renvoie l'inventaire du joueur sous forme de String</a>
+<span class="sourceLineNo">175</span><a id="line.175">     * @return  La chaine contenant la description de l'inventaire</a>
+<span class="sourceLineNo">176</span><a id="line.176">     */</a>
+<span class="sourceLineNo">177</span><a id="line.177">    public String inventory() {</a>
+<span class="sourceLineNo">178</span><a id="line.178">        String vInventory = this.aInventory.listeItems();</a>
+<span class="sourceLineNo">179</span><a id="line.179">        if (vInventory.equals(""))</a>
+<span class="sourceLineNo">180</span><a id="line.180">            return "Empty";</a>
+<span class="sourceLineNo">181</span><a id="line.181">        return vInventory;</a>
+<span class="sourceLineNo">182</span><a id="line.182">    }</a>
+<span class="sourceLineNo">183</span><a id="line.183">  </a>
+<span class="sourceLineNo">184</span><a id="line.184">}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Global
+comment0.text=\r\n\ Contient\ les\ variables\ globales\r\n\r\n\ @author\ Alexian\ Plancke\r\n\ @version\ Finale\r\n
+comment1.params=
+comment1.target=Global()
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Global\r\n\ @return\ Bool\u00E9en\ qui\ indique\ si\ le\ mode\ debug\ est\ actif\r\n
+comment2.params=
+comment2.target=boolean\ getDebug()
+comment3.params=pDir
+comment3.target=java.lang.String\ getOppositeDir(java.lang.String)
+comment3.text=\r\n\ Renvoie\ la\ direction\ oppos\u00E9e\r\n\ @param\ pDir\ String\ \ \ \ La\ direction\ \r\n\ @return\ \ La\ chaine\ contenant\ la\ direction\ oppos\u00E9e\r\n
+comment4.params=pCode
+comment4.target=java.lang.String\ getMessage(java.lang.String)
+comment4.text=\r\n\ Converti\ une\ erreur\ en\ message\ pour\ l'utilisateur\r\n\ @param\ pCode\ String\ Code\ d'erreur\r\n\ @return\ Message\ en\ clair\r\n
+comment5.params=pMessage
+comment5.target=void\ debug(java.lang.String)
+comment5.text=\r\n\ Affiche\ un\ message\ de\ mise\ au\ point\ sur\ la\ console\ si\ le\ mode\ debug\ est\ activ\u00E9\r\n\ @param\ pMessage\ String\ Message\ \u00E0\ afficher\r\n
+numComments=6

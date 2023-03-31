@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Command
+comment0.text=\r\n\ Classe\ qui\ permet\ d'analyser\ et\ de\ manipuler\ les\ commandes\ entr\u00E9es\ par\ l'utilisateur\r\n\r\n\ @author\ Alexian\ Plancke\r\n\ @version\ Finale\r\n
+comment1.params=pCw
+comment1.target=Command(java.lang.String)
+comment1.text=\r\n\ Constructeur\r\n\ @param\ pCw\ La\ chaine\ entr\u00E9e\ par\ le\ joueur\r\n
+comment2.params=pCw\ pSw
+comment2.target=Command(java.lang.String,\ java.lang.String)
+comment2.text=\r\n\ Constructeur\ naturel\r\n\ @param\ pCw\ La\ commande\ principale\ (action)\r\n\ @param\ pSw\ Le\ compl\u00E9ment\ de\ la\ commande\ (second\ mot)\r\n
+comment3.params=
+comment3.target=CommandWord\ getCommandWord()
+comment3.text=\r\n\ Accesseur\ qui\ permet\ de\ savoir\ quel\ est\ la\ commande\r\n
+comment4.params=
+comment4.target=java.lang.String\ getSecondWord()
+comment4.text=\r\n\ Accesseur\ qui\ permet\ de\ conna\u00EEtre\ le\ compl\u00E9ment\ de\ commande\r\n
+comment5.params=
+comment5.target=boolean\ hasSecondWord()
+comment5.text=\r\n\ Renvoi\ null\ si\ il\ n'y\ a\ pas\ de\ compl\u00E9ment\ de\ commande\r\n
+comment6.params=
+comment6.target=boolean\ isUnknown()
+comment6.text=\r\n\ Renvoi\ null\ si\ la\ commande\ tap\u00E9e\ par\ l'utilisateur\ n'est\ pas\ reconnue\r\n
+numComments=7

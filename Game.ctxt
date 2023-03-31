@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Game
+comment0.text=\r\n\ Classe\ principale\ du\ jeu,\ qui\ permet\ de\ cr\u00E9er\ une\ session\ du\ jeu,\ et\ une\ interface\ au\ joueur\r\n\r\n\ @author\ Alexian\ Plancke\r\n\ @version\ Interm\u00E9diaire\r\n
+comment1.params=
+comment1.target=Game()
+comment1.text=\r\n\ Create\ the\ game\ and\ initialise\ its\ internal\ map.\ Create\ the\ inerface\ and\ link\ to\ it.\r\n
+numComments=2

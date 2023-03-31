@@ -1,0 +1,39 @@
+lock north
+unlock north
+go south
+take key
+back
+inspect Anvil
+take Anvil
+inventory
+take Cookie
+items
+eat Cookie
+items
+help
+go down
+take Card
+items
+drop Card
+items
+take Card
+items
+go north
+go west
+take Cookie
+eat Cookie
+back
+back
+take Anvil
+go north
+go west
+go north
+go south
+go south
+back
+back
+back
+back
+go down
+unlock down
+go down

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=TeleportRoom
+comment0.text=\r\n\ Classe\ qui\ sert\ repr\u00E9senter\ chacunes\ des\ pi\u00E8ces\ que\ le\ joueur\ peut\ visiter\ dans\ le\ jeu\r\n\r\n\ @author\ Alexian\ Plancke\r\n\ @version\ Finale\r\n\ \r\n
+comment1.params=pName\ pD\ pI\ pTeleport
+comment1.target=TeleportRoom(java.lang.String,\ java.lang.String,\ java.lang.String,\ boolean)
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ teleportRoom\r\n
+numComments=2

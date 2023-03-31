@@ -1,0 +1,7 @@
+go north
+back
+go north
+go down
+go north
+alea Bar
+go south

@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=ItemList
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ ItemList\ ici.\r\n\r\n\ @author\ Alexian\ Plancke\r\n\ @version\ Finale\r\n
+comment1.params=
+comment1.target=ItemList()
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ ItemList\r\n
+comment2.params=pItemName\ pItem
+comment2.target=void\ addItem(java.lang.String,\ Item)
+comment2.text=\r\n\ Ajoute\ un\ item\ \u00E0\ la\ liste\ des\ items\r\n\r\n\ @param\ \ \ \ \ \ \ pItemName\ \ \ Nom\ de\ l'item\ \u00E0\ ajouter\r\n\ @param\ \ \ \ \ \ \ pItem\ \ \ \ \ \ \ Objet\ item\ \u00E0\ ajouter\r\n
+comment3.params=pItemName
+comment3.target=Item\ removeItem(java.lang.String)
+comment3.text=\r\n\ Supprime\ un\ item\ de\ la\ liste\ des\ items\r\n\r\n\ @param\ \ \ \ \ \ \ pItemName\ \ \ Nom\ de\ l'item\ \u00E0\ supprimer\r\n\ @return\ \ \ \ \ \ Objet\ item\ retir\u00E9\ de\ la\ liste\r\n
+comment4.params=pItemName
+comment4.target=boolean\ searchItem(java.lang.String)
+comment4.text=\r\n\ Recherche\ un\ item\ de\ la\ liste\ des\ items\r\n\r\n\ @param\ \ \ pItemName\ String\ \ Nom\ de\ l'item\ \r\n\ @return\ \ True\ si\ l'objet\ est\ pr\u00E9sent\ dans\ la\ liste\r\n
+comment5.params=pItemName
+comment5.target=Item\ findItem(java.lang.String)
+comment5.text=\r\n\ Recherche\ un\ item\ de\ la\ liste\ des\ items\r\n\r\n\ @param\ \ \ pItemName\ String\ \ Nom\ de\ l'item\ \r\n\ @return\ \ l'objet\ s'il\ est\ pr\u00E9sent\ dans\ la\ liste\r\n
+comment6.params=
+comment6.target=java.lang.String\ listeItems()
+comment6.text=\r\n\ Renvoie\ la\ liste\ des\ Items\ sous\ forme\ de\ string\r\n\ @return\ \ La\ chaine\ contenant\ la\ description\ de\ la\ liste\ d'items\r\n
+comment7.params=pType
+comment7.target=java.util.LinkedList\ getItemsByType(java.lang.String)
+comment7.text=\r\n\ Renvoie\ la\ liste\ des\ Items\ d'un\ type\ donn\u00E9\r\n\ @param\ \ \ pType\ String\ \ Le\ type\ des\ Items\ recherch\u00E9s\r\n\ @return\ \ La\ liste\ d'items\ demand\u00E9e\r\n
+numComments=8

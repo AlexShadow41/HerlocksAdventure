@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Character
+comment0.text=\r\n\ Ce\ sont\ les\ personnages\ que\ l'ont\ peut\ rencontrer\ dans\ le\ jeu\r\n\r\n\ @author\ Alexian\ Plancke\r\n\ @version\ Finale\r\n
+comment1.params=vName\ vDescription
+comment1.target=Character(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getDescription()
+comment2.text=\r\n\ Accesseur\ de\ la\ description\ personnage\r\n\ @return\ La\ description\ du\ personnage\r\n
+comment3.params=pKeyWord\ pAnswer
+comment3.target=void\ setSpeech(java.lang.String,\ java.lang.String)
+comment3.text=\r\n\ Ajoute\ une\ interaction\ avec\ le\ personnage\r\n\ @param\ pKeyWord\ String\ Le\ mot\ cl\u00E9\r\n\ @param\ pAnswer\ String\ La\ r\u00E9ponse\ que\ fait\ ce\ personnage\r\n
+comment4.params=pKeyWord
+comment4.target=java.lang.String\ getSpeech(java.lang.String)
+comment4.text=\r\n\ Une\ interaction\ avec\ le\ personnage\r\n\ @param\ pKeyWord\ String\ Le\ mot\ cl\u00E9\r\n\ @return\ La\ r\u00E9ponse\ que\ fait\ ce\ personnage\r\n
+numComments=5
